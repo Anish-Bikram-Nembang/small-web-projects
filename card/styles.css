@@ -1,0 +1,153 @@
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+body{
+	/*can be turned on for blending background
+	background-blend-mode:lighten; */
+	height:100vh;
+	display:flex;
+	justify-content: center;
+	background-color: #634d30;
+	background-image: url("assets/background.jpg");
+	align-items: center;
+	background-size: cover;
+
+}
+.border
+{
+	background: linear-gradient(#ccd5ae,#949e4a);
+	padding:3px;
+	border-radius: 10px;
+}
+.card{
+	padding-right:15px;
+	display: grid;
+	grid-template-columns: 2fr 2fr;
+	grid-template-rows: 5fr 1fr;
+	grid-template-areas: 
+	"a b"
+	"c d";
+	width:450px;
+	height: 300px;
+	background-color: rgba(255,255,255,1);
+	box-shadow: 3px 3px 9px #faedcd;
+	border-radius: 10px;
+}
+.img{
+	display: block;
+	margin: 20px 0 auto 20px;
+	grid-area: a;
+	background-color: white;
+	background-image: url("assets/snakeplant.png");
+	width: 180px;
+	height: 180px;
+	background-position: center;
+	background-size: contain;
+	background-repeat:no-repeat ;
+	border-radius: 5px;
+	border: 3px solid #ccd5ae;
+}
+.desc{
+	margin-top: 20px;
+	text-align: center;
+	grid-area: b;
+	font-family: "Poppins";
+	font-weight: 600;
+	color: #d4a373;
+	text-shadow: 2px 2px #ba8f64;
+}
+
+li{
+	font-size: 20px;
+}
+.addcart{
+	grid-area: c;
+	margin: 0 auto 0 40px;
+
+	
+}
+.features{
+	margin-left: 45px;
+	text-align: start;
+	color: #d4a373;
+	text-shadow: none;
+	margin-top: 15px;
+}
+.btn{
+	border:3px solid #99a965;
+	background-color: #c1c983;
+	width: 150px;
+	color: #fefae0;
+	padding:5px 10px;
+	border-radius: 10px;
+	font-weight: 800;
+	margin-top: 20px;
+}
+.btn:hover{
+	background-color:#a7ae71;
+}
+
+
+.price{
+	grid-area: d;
+	font-family: "Pacifico", cursive;
+  	font-weight: 400;
+  	font-style: normal;
+	color: #d4a373;
+	text-shadow: 2px 2px #e7cdb4;
+	text-align: center;
+	padding-bottom: 30px;
+}
+
+
+@media (width <= 540px){
+	.card{
+		display: grid;
+		grid-template-rows: 4fr 4fr 1fr 1fr;
+		grid-template-areas: 
+		"a"
+		"b"
+		"d"
+		"c";
+		text-align: center;
+		width:300px;
+		height: 450px;
+		padding:0;
+	}
+	.addcart{
+		grid-area: c;
+		padding: 0;
+		margin: 0;
+		padding-bottom: 40px;
+	}
+	.img{
+		display: block;
+		margin: 10px 60px 0 60px;
+		grid-area: a;
+	}
+	.btn{
+		margin: 0;
+	}
+	.desc{
+		text-align: center;
+		grid-area: b;
+		margin: 0;
+		height:120px;
+	}
+	.features{
+
+		font-size: 10px;
+		margin: 0;
+		margin-left: 75px;
+	}
+	.price{
+		grid-area: d;
+		padding:0;
+		height:30px;
+		font-size: small;
+		margin: 0;
+		margin-bottom: 25px;
+	}
+}
