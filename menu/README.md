@@ -15,4 +15,4 @@ Each section includes:
 
 ## Screenshot
 Below is a preview of the site:
-!(./assets/menupreview.png)
+![Menu Preview](./assets/menupreview.png)
