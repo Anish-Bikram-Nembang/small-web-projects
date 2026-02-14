@@ -1,0 +1,96 @@
+* {
+  width: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main {
+  background-color: whitesmoke;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.calc {
+  width: 300px;
+  height: 400px;
+  border: 3px solid grey;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+}
+.screen {
+  width: 100%;
+  height: 20%;
+  background-color: grey;
+  border-radius: 20px;
+}
+.btns {
+  width: 100%;
+  height: 80%;
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
+  align-items: end;
+  gap: 8px;
+}
+.numpad {
+  width: 90%;
+  height: 80%;
+  grid-column: 2 / 3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  place-items: end;
+  align-items: center;
+  gap: 2px;
+}
+.operators {
+  grid-column: 3 / 4;
+  width: 100%;
+  height: 80%;
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  place-items: center;
+  gap: 2px;
+}
+.operators > .btn {
+  background-color: grey;
+  color: white;
+}
+.btn {
+  cursor: pointer;
+  width: 50px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+}
+.span-2-row {
+  grid-row: span 2;
+  height: 60px;
+  border-radius: 10px;
+}
+
+.numpad > .btn {
+  background-color: #000000;
+  color: #ffffff;
+}
+.utils {
+  grid-column: 1 / 2;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  gap: 8px;
+}
+.vertical-text {
+  display: flex;
+  flex-direction: column;
+  height: 120px;
+}
+.vertical-text > span {
+  width: 100%;
+  text-align: center;
+}
