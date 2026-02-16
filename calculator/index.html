@@ -9,7 +9,7 @@
   <body>
     <div class="main">
       <div class="calc">
-        <input type="text" class="screen" placeholder="0" />
+        <input type="text" class="screen" placeholder="0" autofocus />
         <div class="btns">
           <button type="button" class="btn">
             <svg
@@ -41,7 +41,7 @@
             <button type="button" class="btn">3</button>
             <button type="button" class="btn">0</button>
             <button type="button" class="btn">.</button>
-            <button type="button" class="btn">=</button>
+            <button type="button" class="btn" onclick="calc()">=</button>
           </div>
           <button type="button" class="btn">%</button>
           <button type="button" class="btn">
@@ -65,9 +65,10 @@
           <button type="button" class="btn">/</button>
           <button type="button" class="btn">x</button>
           <button type="button" class="btn">-</button>
-          <button type="button" class="btn">+</button>
+          <button type="button" class="btn" onclick="changeValue()">+</button>
         </div>
       </div>
     </div>
+    <script src="./script.js"></script>
   </body>
 </html>
