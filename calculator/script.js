@@ -4,25 +4,39 @@ function calc() {
   const input = screen.value;
   screen.value = "";
   const nums = [];
-  for (var i = 0; i < input.length; i++) {
-    if (!isNaN(parseInt(input[i]))) {
+  for (let i = 0; i < input.length; i++) {
+    let currentDigit = parseInt(input[i]);
+    if (!isNaN(currentDigit)) {
       if (i == 0 || isNaN(parseInt(input[i - 1]))) {
-        nums.push(parseInt(input[i]));
+        nums.push(currentDigit);
       } else {
-        nums.push(nums.pop() * 10 + parseInt(input[i]));
+        nums.push(nums.pop() * 10 + currentDigit);
       }
     } else {
       nums.push(input[i]);
     }
   }
-  //WIP: calculation logic
-  // var result = 0;
-  // for (var i = 0; i < nums.length; i++) {
-  //   if (typeof nums[i] === "number") {
-  //     num = nums[i];
-  //   } else {
-  //
-  //   }
-  // }
   console.log(nums);
+  var result = nums.pop();
+  var current;
+  while ((current = nums.pop()) != undefined) {
+    switch (current) {
+      case "+":
+        result += nums.pop();
+        break;
+      case "*":
+        result *= nums.pop();
+        break;
+      case "/":
+        result /= nums.pop();
+        break;
+      case "-":
+        result -= nums.pop();
+        break;
+      default:
+        result = "ERROR";
+        break;
+    }
+  }
+  screen.value = result.toString();
 }
