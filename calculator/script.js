@@ -5,6 +5,11 @@ function calc() {
   screen.value = "";
   let nums = [];
   let inputLength = input.length;
+  let precedence = new Map();
+  precedence.set("*", 2);
+  precedence.set("/", 2);
+  precedence.set("+", 0);
+  precedence.set("-", 0);
   while (inputLength > 0) {
     //parsing floats and operators
     let current = parseFloat(input[i]);
@@ -23,7 +28,7 @@ function calc() {
       operatorInInput = nums[i];
       while (operatorOnTop != undefined) {
         operatorOnTop = operatorStack.pop();
-        if (precedence[operatorInInput] <= precedence[operatorOnTop]) {
+        if (precedence.get(operatorInInput) <= precedence.get(operatorOnTop)) {
           outputQueue.push(operatorOnTop);
           operatorStack.push(operatorInInput);
         } else {
