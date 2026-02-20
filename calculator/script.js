@@ -8,18 +8,21 @@ precedence.set("%", 1);
 precedence.set("+", 0);
 precedence.set("-", 0);
 
-//function to setup data structures for "Shunting yard algorithm" and display result WIP****
+//array to store HISTORY
+let history = [];
+
+//function to setup data structures for "Shunting yard algorithm" and display result
 function calc() {
   let nums = parseInput(screen.value);
   let output = [];
   let operatorStack = [];
+  history.push(screen.value);
   clearScreen();
   let length = nums.length;
   for (let i = 0; i < length; i++) {
     if (typeof nums[i] === "number") {
       output.push(nums[i]);
     } else {
-      //shouldn't need to check for operator validity, should check in parseInput()
       //if operator stack is empty
       if (operatorStack.length < 1) {
         operatorStack.push(nums[i]);
@@ -38,7 +41,11 @@ function calc() {
     }
   }
   pushOperatorToQueue(operatorStack, output);
-  screen.value = calcResult(output);
+  let result = calcResult(output);
+  history.push(history.pop() + " = " + result);
+  appendNewResultToHistory(history[history.length - 1]);
+  screen.value = result;
+  console.log(history);
 }
 
 //calculate the postfix output, main calculation logic
@@ -49,7 +56,6 @@ function calcResult(queue) {
     if (typeof queue[i] === "number") {
       result.push(queue[i]);
     } else {
-      //NEEDS RESULT.POP() CHECKS AND OPERATOR CHECKS and FINAL RESULT ARRAY CHECKS
       operand1 = result.pop();
       operand2 = result.pop();
       switch (queue[i]) {
@@ -71,7 +77,7 @@ function calcResult(queue) {
       }
     }
   }
-  return result[0].toString();
+  return result[0].toFixed(4).toString();
 }
 
 //function to parse input
@@ -122,4 +128,20 @@ function clearScreen() {
 //function for backspace button
 function deleteElement() {
   screen.value = screen.value.slice(0, -1);
+}
+
+function showHistory() {
+  const historyDiv = document.getElementsByClassName("history")[0];
+  historyDiv.classList.remove("invisible");
+}
+function hideHistory() {
+  const historyDiv = document.getElementsByClassName("history")[0];
+  historyDiv.classList.add("invisible");
+}
+
+function appendNewResultToHistory(result) {
+  const historyList = document.getElementsByClassName("history-list")[0];
+  const li = document.createElement("li");
+  li.textContent = result;
+  historyList.appendChild(li);
 }
